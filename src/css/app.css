@@ -1,0 +1,273 @@
+/* Estilos gerais */
+:root {
+    --cor-vermelho: #b83f45;
+    --cor-verde: #5cc785;
+    --cor-fundo: #f3f3f3;
+    --cor-cinza-claro: #a2a2a2;
+    --cor-branco: #fff;
+    --cor-preto: #111;
+    --fonte: sans-serif;
+    --sombra: 1px 1px 5px #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte);
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-preto);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fim Estilos gerais */
+
+/* Título */
+h1 {
+    font-size: 10vmin;
+    color: var(--cor-vermelho);
+    margin-bottom: 15px;
+}
+
+/* Fim Título */
+
+/* Input de tarefas */
+.formTarefas {
+    width: 70%;
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra);
+    display: flex;
+    align-items: center;
+}
+
+.formTarefas button {
+    height: 100%;
+    width: 10%;
+    padding: 15px 0;
+    border: none;
+    background-color: var(--cor-branco);
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputTarefas {
+    height: 100%;
+    padding: 15px 5px;
+    border: none;
+    background-color: var(--cor-branco);
+    font-size: 25px;
+    outline: none;
+}
+
+/* Fim Input de tarefas */
+
+/* Tarefas */
+.listaDeTareafas {
+    width: 70%;
+    box-shadow: var(--sombra);
+}
+
+.tarefas {
+    width: 100%;
+    background-color: var(--cor-branco);
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+
+    & div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        & p {
+            font-size: 25px;
+        }
+    }
+
+    & button {
+        display: none;
+    }
+}
+
+input[type=checkbox] {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    appearance: none;
+    border: 1px solid var(--cor-cinza-claro);
+    background-color: var(--cor-branco);
+}
+
+input[type=checkbox]:checked {
+    border-color: var(--cor-verde);
+    background-color: var(--cor-branco);
+}
+
+input[type=checkbox]:checked::before {
+    content: '✔';
+    color: var(--cor-verde);
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.tarefas:hover {
+    & button {
+        background: none;
+        border: none;
+        color: var(--cor-cinza-claro);
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            color: var(--cor-vermelho);
+        }
+    }
+}
+
+.tarefasConcluidas {
+    width: 100%;
+    background-color: var(--cor-branco);
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+
+    & div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        & p {
+            font-size: 25px;
+            color: var(--cor-cinza-claro);
+            text-decoration: line-through;
+        }
+    }
+
+    & button {
+        display: none;
+    }
+}
+
+/* Fim Tarefas */
+
+/* Filtros */
+.filtros {
+    width: 70%;
+    background-color: var(--cor-branco);
+    box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.15),
+        0 10px 0 -5px var(--cor-branco),
+        0 10px 1px -4px rgba(0, 0, 0, 0.15),
+        0 20px 0 -10px var(--cor-branco),
+        0 20px 1px -9px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & ul {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    & a {
+        color: var(--cor-preto);
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid var(--cor-branco);
+
+        &:hover {
+            border-radius: 5px;
+            border: 1px solid var(--cor-vermelho);
+        }
+    }
+
+    & button {
+        background: none;
+        border: none;
+        font-size: 16px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* Fim Filtros */
+
+/* Intruções */
+.instrucoes {
+    color: var(--cor-preto);
+    font-size: 10px;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Fim Intruções */
+
+/* Esconder */
+.esconder {
+    display: none;
+}
+
+/* Fim Esconder */
+
+/* Responsividade */
+@media(width <=950px) {
+    .container {
+        width: 100%;
+    }
+
+    .inputTarefas {
+        width: 75%;
+    }
+
+    .inputTarefas input {
+        font-size: 20px;
+    }
+
+    .listaDeTareafas {
+        width: 75%;
+    }
+
+    .filtros {
+        width: 75%;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Fim Responsividade */
